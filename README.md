@@ -1,89 +1,128 @@
-<p align="center"><a href="https://dataease.io"><img src="https://dataease.oss-cn-hangzhou.aliyuncs.com/img/dataease-logo.png" alt="DataEase" width="300" /></a></p>
-<h3 align="center">人人可用的开源数据可视化分析工具</h3>
-<p align="center">
-  <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0"><img src="https://img.shields.io/github/license/dataease/dataease?color=%231890FF&style=flat-square" alt="License: GPL v2"></a>
-  <a href="https://app.codacy.com/gh/dataease/dataease?utm_source=github.com&utm_medium=referral&utm_content=dataease/dataease&utm_campaign=Badge_Grade_Dashboard"><img src="https://app.codacy.com/project/badge/Grade/da67574fd82b473992781d1386b937ef" alt="Codacy"></a>
-  <a href="https://github.com/dataease/dataease/releases/latest"><img src="https://img.shields.io/github/v/release/dataease/dataease" alt="Latest release"></a>
-  <a href="https://github.com/dataease/dataease"><img src="https://img.shields.io/github/stars/dataease/dataease?color=%231890FF&style=flat-square" alt="Stars"></a>
-  <a href="https://github.com/dataease/dataease/releases/latest"><img src="https://img.shields.io/github/downloads/dataease/dataease/total" alt="Downloads"></a>
-</p>
-<hr />
-DataEase 是开源的数据可视化分析工具，帮助用户快速分析数据并洞察业务趋势，从而实现业务的改进与优化。DataEase 支持丰富的数据源连接，能够通过拖拉拽方式快速制作图表，并可以方便的与他人分享。
+# 项目说明
 
-### DataEase 的功能：
+> 这是一个极简的 vue admin 管理后台，基于vue-admin-template进行了细节改造，主要是把侧边导航改造为了顶部和侧边两个导航。
+>
+> 本项目默认开启了css：sourceMap和devtool('source-map')，便于在开发中调试，除非编译速度过慢，否则开发环境不建议修改。
 
--   图表展示：支持 PC 端、移动端及大屏;
--   图表制作：支持丰富的图表类型(基于 Apache ECharts 实现)、支持拖拉拽方式快速制作仪表板;
--   数据引擎：支持直连模式、本地模式(基于 Apache Doris / Kettle 实现);
--   数据连接：支持关系型数据库、Excel 等文件、Hadoop 等大数据平台、NoSQL 等各种数据源。
+## IDE
 
-### DataEase 的优势：
+编辑器建议使用VS Code，格式化时可以统一代码风格，配置项建议统一设置为默认不自动保存，手动保存后自动修复部分错误。具体参数如下：
 
--   开源开放：零门槛，线上快速获取和安装；快速获取用户反馈、按月发布新版本；
--   简单易用：极易上手，通过鼠标点击和拖拽即可完成分析；
--   秒级响应：集成 Apache Doris，超大数据量下秒级查询返回延时；
--   安全分享：支持多种数据分享方式，确保数据安全。
-
-### DataEase 已支持的数据源:
-
-- Excel
-- MySQL
-- Oracle
-- SQL Server
-- PostgreSQL
-- Elasticsearch
-- MariaDB
-- Apache Doris
-- ClickHouse
-
-> 更多数据源支持持续增加中...
-
-## UI 展示
-
-![de-ui](https://www.fit2cloud.com/dataease/images/screenshot/dataease-v1.gif)
-
-## 功能架构
-
-![de-architecture](https://dataease.oss-cn-hangzhou.aliyuncs.com/img/de-architecture.png)
-
-## 在线体验
-
--   环境地址：<https://demo.dataease.io/>
--   用户名：demo
--   密码：dataease
-
-## 快速开始
-
-仅需两步快速安装 DataEase：
-
-1.  准备一台不小于 8 G内存的 64位 Linux 主机；
-2.  以 root 用户执行如下命令一键安装 DataEase。
-
-```sh
-curl -sSL https://github.com/dataease/dataease/releases/latest/download/quick_start.sh | sh
+```js
+{    
+    "emmet.triggerExpansionOnTab": true,
+    "files.autoSave": "off",
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_attributes": "force-aligned"
+        },
+        "prettyhtml": {
+            "printWidth": 100,
+            "singleQuote": false,
+            "wrapAttributes": false,
+            "sortAttributes": true
+        },
+        "prettier": {
+            "semi": false,
+            "singleQuote": true
+        }
+    },
+    "eslint.run": "onSave",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+}
 ```
 
--   [在线文档](https://dataease.io/docs/)
--   [演示视频](https://www.bilibili.com/video/BV1UB4y1K7jA)
 
-## 微信群
+## 目录结构
 
-<img src="https://dataease.oss-cn-hangzhou.aliyuncs.com/img/wechat-group.png" width="156" height="156"/>
+```bash
+├── build                      # 构建相关
+├── mock                       # 项目mock 模拟数据
+├── public                     # 静态资源
+│   │── favicon.ico            # favicon图标
+│   └── index.html             # html模板
+├── src                        # 源代码
+│   ├── api                    # 所有请求
+│   ├── assets                 # 主题 字体等静态资源
+│   ├── components             # 全局公用组件
+│   ├── directive              # 全局指令
+│   ├── filters                # 全局 filter
+│   ├── icons                  # 项目所有 svg icons
+│   ├── lang                   # 国际化 language
+│   ├── layout                 # 全局 layout
+│   ├── router                 # 路由
+│   ├── store                  # 全局 store管理
+│   ├── styles                 # 全局样式
+│   ├── utils                  # 全局公用方法
+│   ├── vendor                 # 公用vendor
+│   ├── views                  # views 所有页面
+│   ├── App.vue                # 入口页面
+│   ├── main.js                # 入口文件 加载组件 初始化等
+│   └── permission.js          # 权限管理
+├── tests                      # 测试
+├── .env.xxx                   # 环境变量配置
+├── .eslintrc.js               # eslint 配置项
+├── .babelrc                   # babel-loader 配置
+├── .travis.yml                # 自动化CI配置
+├── vue.config.js              # vue-cli 配置
+├── postcss.config.js          # postcss 配置
+└── package.json               # package.json
+```
 
-## 技术栈
 
--   后端：[Spring Boot](https://spring.io/projects/spring-boot)
--   前端：[Vue.js](https://vuejs.org/)、[Element](https://element.eleme.cn/)、[Apache ECharts](https://github.com/apache/echarts)
--   中间件：[MySQL](https://www.mysql.com/)
--   数据处理：[Kettle](https://github.com/pentaho/pentaho-kettle)、[Apache Doris](https://github.com/apache/incubator-doris/)
--   基础设施：[Docker](https://www.docker.com/)
 
-## License & Copyright
+## 构建步骤
 
-Copyright (c) 2014-2021 飞致云 FIT2CLOUD, All rights reserved.
+```bash
+# 克隆项目
+git clone 项目地址
 
-Licensed under The GNU General Public License version 2 (GPLv2)  (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+# 进入项目目录
+cd admin-web
 
-<https://www.gnu.org/licenses/gpl-2.0.html>
+# 安装依赖
+npm install
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+# 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
+npm install --registry=https://registry.npm.taobao.org
+
+# 启动服务
+npm run dev
+```
+
+浏览器访问 [http://localhost:9528](http://localhost:9528)
+
+## 发布
+
+```bash
+# 构建测试环境
+npm run build:stage
+
+# 构建生产环境
+npm run build:prod
+```
+
+## 其它
+
+```bash
+# 预览发布环境效果
+npm run preview
+
+# 预览发布环境效果 + 静态资源分析
+npm run preview -- --report
+
+# 代码格式检查
+npm run lint
+
+# 代码格式检查并自动修复
+npm run lint -- --fix
+```
+
+更多信息请参考花裤衩大佬的vue-element-admin [使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
+
+[线上地址](http://panjiachen.github.io/vue-admin-template)
+
+[国内访问](https://panjiachen.gitee.io/vue-admin-template)
+
